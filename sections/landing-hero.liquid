@@ -23,13 +23,13 @@
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
   <div class="rich-text content-container {% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
 
-    <div class="header-hero--landing__logo rich-text__wrapper rich-text__wrapper--center page-width">
+    {% comment %} <div class="header-hero--landing__logo rich-text__wrapper rich-text__wrapper--center page-width">
       <div class="rich-text__blocks left"><h2 class="rich-text__heading rte hxl">
         <span>X</span>
         </h2><div class="rich-text__text rte">
           <p>The<br>Ultimate<br><strong>Brain<br>Performance<br>Enhancer</strong></p>
         </div></div>
-    </div>
+    </div> {% endcomment %}
     
     <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
       <div class="rich-text__blocks {{ section.settings.content_alignment }}">
