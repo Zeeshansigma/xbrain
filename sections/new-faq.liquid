@@ -1,0 +1,90 @@
+{{ 'section-new-faq.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding new-faq">
+    <div class="page-width">
+        {% for block in section.blocks %}
+            <collapsible-element>
+                <h3 class="collapsible__title new-faq__question">
+                    {{ block.settings.question }}
+                    <span class="collapsible__icons">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                            <path d="M8 6.46289L11 9.46289H5L8 6.46289Z" fill="#262626"/>
+                        </svg>
+                    </span>
+                </h3>
+                <div class="collapsible__content new-faq__answer">{{ block.settings.answer }}</div>
+            </collapsible-element>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "New FAQ",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "blocks": [
+            {
+                "type": "question-answer",
+                "name": "Question & Answer",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "question",
+                        "label": "Question",
+                        "default": "How do I know X will work for me?"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "answer",
+                        "label": "Answer",
+                        "default": "<p>Every one of the 19 active ingredients in X has been proven through clinical research to benefit brain performance. What that means is that most people will experience a significant benefit. Diet, exercise and sleep will also have a great impact on your brain performance.</p>"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "New FAQ"
+            }
+        ]
+    }
+{% endschema %}

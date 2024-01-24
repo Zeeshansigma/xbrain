@@ -1,0 +1,176 @@
+{{ 'section-new-image-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.3 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding new-image-text">
+    <div class="page-width page-width--wide new-image-text__inner">
+        <div class="new-image-text__col">
+            <div class="new-image-text__content--mobile">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'uppercase' %}
+                            <div class="new-image-text__uppercase">{{ block.settings.uppercase }}</div>
+                        {% when 'heading' %}
+                            <h2 class="new-image-text__heading">{{ block.settings.heading }}</h2>
+                    {% endcase %}
+                {% endfor %}
+            </div>
+            <div class="new-image-text__wrapper">
+                {% if section.settings.image != blank %}
+                    <div class="new-image-text__image">
+                        {{ section.settings.image | image_url: width: 1000 | image_tag: alt: section.settings.image.alt }}
+                    </div>
+                {% endif %}
+                {% if section.settings.badge != blank %}
+                    <div class="new-image-text__badge">
+                        {{ section.settings.badge | image_url: width: 300 | image_tag: alt: section.settings.badge.alt }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="new-image-text__col">
+            <div class="new-image-text__content--desktop">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'uppercase' %}
+                            <div class="new-image-text__uppercase">{{ block.settings.uppercase }}</div>
+                        {% when 'heading' %}
+                            <h2 class="new-image-text__heading">{{ block.settings.heading }}</h2>
+                    {% endcase %}
+                {% endfor %}
+            </div>
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when 'description' %}
+                        <div class="new-image-text__description">{{ block.settings.description }}</div>
+                    {% when 'button' %}
+                        <div class="new-image-text__button">
+                            <a href="#productActionBlock" class="button button--primary">{{ block.settings.button_label }}</a>
+                            <div class="new-image-text__disclaimer">{{ block.settings.disclaimer }}</div>
+                        </div>
+                {% endcase %}
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% schema %}
+    {
+        "name": "New Image Text",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "badge",
+                "label": "Badge"
+            },
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "blocks": [
+            {
+                "type": "uppercase",
+                "name": "Uppercase",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "uppercase",
+                        "label": "Uppercase",
+                        "default": "The Power of Quality Ingredients"
+                    }
+                ]
+            },
+            {
+                "type": "heading",
+                "name": "Heading",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading",
+                        "default": "Our Unmatched Guarantees – Your Assurance of Excellence"
+                    }
+                ]
+            },
+            {
+                "type": "description",
+                "name": "Description",
+                "settings": [
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description",
+                        "default": "<p>We're confident in our product, which is why we offer an unprecedented guarantee: If X doesn't deliver a superior increase in brain performance compared to any supplement you've tried, we'll buy that supplement for you (up to $75, limit one claim per household). Your trust in X is risk-free, thanks to our straightforward 90-day return policy. If you're not completely satisfied, simply return the unused portion for a full refund. Have questions or need to make a claim? Reach out to us at hello@xbrain.science for prompt assistance.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "button",
+                "name": "Button",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "button_label",
+                        "label": "Button Label",
+                        "default": "Try X Now - Risk Free"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button_url",
+                        "label": "Button URL"
+                    },
+                    {
+                        "type": "text",
+                        "id": "disclaimer",
+                        "label": "Disclaimer",
+                        "default": "90-Day Money Back Guarantee"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "New Image Text"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,176 @@
+.new-variant-choice__products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.new-variant-choice__product-card {
+    border: 5px solid #D1D1D1;
+    width: 350px;
+    max-width: 100%;
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-variant-choice__inner-card {
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.new-variant-choice__product-card--single {
+    border-color: #D1D1D1;
+}
+
+.new-variant-choice__product-card--popular {
+    border-color: #0032A0
+}
+
+.new-variant-choice__product-card--value {
+    border-color: #ED1C24
+}
+
+.new-variant-choice__product-card-top-title {
+    padding: .5rem 2rem;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.new-variant-choice__product-card--popular .new-variant-choice__product-card-top-title {
+    background-color: #0032A0
+}
+
+.new-variant-choice__product-card--value .new-variant-choice__product-card-top-title {
+    background-color: #ED1C24
+}
+
+.new-variant-choice__product-card-title {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #787878;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.new-variant-choice__product-card--popular img {
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
+.new-variant-choice__product-card--single img {
+    max-width: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+.new-variant-choice__product-card-price {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 1rem;
+}
+
+.new-variant-choice__compare-at-price {
+    font-size: 14px;
+    color: #BABABA;
+    text-decoration: line-through;
+}
+
+.new-variant-choice__price {
+    font-size: 26px;
+    color: #3C3C3C;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.new-variant-choice__per-bottle {
+    text-align: center;
+    color: #8B8B8B;
+}
+
+.new-variant-choice__product-card-subtitle {
+    text-align: center;
+    color: #6F6E6E;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 15px;
+    margin-top: 1rem;
+}
+
+.product-form__buttons {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.product-form__buttons button {
+    width: 100%;
+    font-style: none;
+    font-weight: bold;
+    background-color: #1EA97F;
+}
+
+.product-form__buttons button i {
+    font-style: normal;
+}
+
+.new-variant-choice__savings {
+    text-align: center;
+    color: #ED1C24;
+}
+
+.new-variant-choice__product-card-image {
+    position: relative;
+}
+
+.bubble {
+    position: absolute;
+    right: 0;
+    top: -15px;
+    width: 80px; 
+    height: 40px; 
+    background-color: red;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px; 
+    font-weight: bold;
+    border-radius: 9px;
+  }
+
+  .bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10px; 
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent; 
+    border-right: 9px solid transparent; 
+    border-top: 9px solid red; 
+    transform: translateY(100%);
+  }
+
+  .new-variant-choice .product-form__buttons {
+    cursor: pointer;
+  }
+
+  @media (max-width: 749px) {
+    .new-variant-choice__products {
+        flex-direction: column-reverse;
+    }
+
+    .new-variant-choice__product-card {
+        min-height: auto;
+    }
+  }

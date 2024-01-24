@@ -1,0 +1,273 @@
+{{ 'section-new-reviews-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding new-reviews-slider">
+    <div class="page-width page-width--wide">
+        <div class="keen-slider new-reviews-slider__slider">
+            {% for block in section.blocks %}
+                <div class="keen-slider__slide new-reviews-slider__slide">
+                    <div class="new-reviews-slider__poster" data-video-src="{{ block.settings.video.sources[1].url }}">
+                        <div class="image">
+                            {% if block.settings.poster != blank %}
+                                {{ block.settings.poster | image_url: width: 600 | image_tag: alt: block.settings.poster.alt }}
+                            {% elsif block.settings.video.preview_image != blank %}
+                                {{ block.settings.video.preview_image | image_url: width: 600 | image_tag: alt: block.settings.poster.alt }}
+                            {% endif %}
+                        </div>
+                        <div class="play-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="new-reviews-slider__author">{{ block.settings.author }}'s Story</div>
+                    <div class="new-reviews-slider__verified">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="11.9526" cy="12.2502" r="11.5854" fill="#00A44B"/>
+                            <path d="M7.07422 12.2502L10.7328 15.9087L17.4401 9.20142" stroke="white" stroke-width="2.43902"/>
+                        </svg>
+                        <span>Verified Buyer</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div> 
+</div>
+
+<div class="video-wrapper">
+    <div class="video-wrapper__close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div class="video-wrapper__container">
+    </div>
+</div>
+
+<script>
+    const videoClose = document.querySelector(".video-wrapper__close")
+    const videoPopup = document.querySelector(".video-wrapper")
+    const videoContainer = document.querySelector(".video-wrapper__container")
+
+    document.querySelectorAll('.new-reviews-slider__poster').forEach(videoWrapper => {
+        videoWrapper.addEventListener('click', function() {
+            var video = this.dataset.videoSrc;
+            openPopup(video)
+            videoContainer.querySelector("video").addEventListener('webkitendfullscreen', function() {
+                closePopup()
+            }, false);
+        })
+
+        videoClose.addEventListener('click', function() {
+            closePopup()
+        })
+
+        videoPopup.addEventListener('click', function(e) {
+            closePopup()
+        })
+
+        function closePopup() {
+            videoPopup.style.display = "none";
+            videoContainer.innerHTML = "";
+            videoContainer.querySelector('video').pause()
+
+        }
+
+        function openPopup(video) {
+            videoPopup.style.display = "flex";
+            videoContainer.innerHTML = `<video controls autoplay>
+            <source src="${video}" type="video/mp4" />
+            </video>`;
+
+            videoContainer.querySelector('video').play()
+        }
+    });
+
+    function navigation(slider) {
+        let wrapper, dots, arrowLeft, arrowRight
+
+        function markup(remove) {
+            wrapperMarkup(remove)
+            dotMarkup(remove)
+            arrowMarkup(remove)
+        }
+
+        function removeElement(elment) {
+            elment.parentNode.removeChild(elment)
+        }
+        function createDiv(className) {
+            var div = document.createElement("div")
+            var classNames = className.split(" ")
+            classNames.forEach((name) => div.classList.add(name))
+            return div
+        }
+
+        function arrowMarkup(remove) {
+            if (remove) {
+            removeElement(arrowLeft)
+            removeElement(arrowRight)
+            return
+            }
+            arrowLeft = createDiv("arrow arrow--left")
+            arrowLeft.addEventListener("click", () => slider.prev())
+            arrowRight = createDiv("arrow arrow--right")
+            arrowRight.addEventListener("click", () => slider.next())
+
+            wrapper.appendChild(arrowLeft)
+            wrapper.appendChild(arrowRight)
+        }
+
+        function wrapperMarkup(remove) {
+            if (remove) {
+            var parent = wrapper.parentNode
+            while (wrapper.firstChild)
+                parent.insertBefore(wrapper.firstChild, wrapper)
+            removeElement(wrapper)
+            return
+            }
+            wrapper = createDiv("navigation-wrapper")
+            slider.container.parentNode.appendChild(wrapper)
+            wrapper.appendChild(slider.container)
+        }
+
+        function dotMarkup(remove) {
+            if (remove) {
+            removeElement(dots)
+            return
+            }
+            dots = createDiv("dots")
+            slider.track.details.slides.forEach((_e, idx) => {
+            var dot = createDiv("dot")
+            dot.addEventListener("click", () => slider.moveToIdx(idx))
+            dots.appendChild(dot)
+            })
+            wrapper.appendChild(dots)
+        }
+
+        function updateClasses() {
+            var slide = slider.track.details.rel
+            slide === 0
+            ? arrowLeft.classList.add("arrow--disabled")
+            : arrowLeft.classList.remove("arrow--disabled")
+            slide === slider.track.details.slides.length - 1
+            ? arrowRight.classList.add("arrow--disabled")
+            : arrowRight.classList.remove("arrow--disabled")
+            Array.from(dots.children).forEach(function (dot, idx) {
+            idx === slide
+                ? dot.classList.add("dot--active")
+                : dot.classList.remove("dot--active")
+            })
+        }
+
+        slider.on("created", () => {
+            markup()
+            updateClasses()
+        })
+        slider.on("optionsChanged", () => {
+            console.log(2)
+            markup(true)
+            markup()
+            updateClasses()
+        })
+        slider.on("slideChanged", () => {
+            updateClasses()
+        })
+        slider.on("destroyed", () => {
+            markup(true)
+        })
+    }
+
+    var slider = new KeenSlider(".new-reviews-slider__slider", {
+        slides: { perView: 4, spacing: 20 },
+        loop: false,
+        breakpoints: {
+            '(max-width: 899px)': {
+                slides: {
+                    perView: 2,
+                    spacing: 15
+                }
+            },
+            '(max-width: 499px)': {
+                slides: {
+                    perView: 1.2,
+                    spacing: 10
+                }
+            },
+        },
+        loop: true,
+    }, [navigation])
+</script>
+
+{% schema %}
+    {
+        "name": "New Reviews Slider",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "blocks": [
+            {
+                "type": "video",
+                "name": "Video",
+                "settings": [
+                    {
+                        "type": "video",
+                        "id": "video",
+                        "label": "Video"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "poster",
+                        "label": "Poster"
+                    },
+                    {
+                        "type": "text",
+                        "id": "author",
+                        "label": "Author",
+                        "default": "Adam"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "New Reviews Slider"
+            }
+        ]
+    }
+{% endschema %}

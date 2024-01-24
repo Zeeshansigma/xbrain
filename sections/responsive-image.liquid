@@ -1,0 +1,88 @@
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding responsive-image">
+    <div class="page-width page-width--wide responsive-image__inner">
+        {% if section.settings.heading != blank %}
+            <h2 class="responsive-image__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.desktop != blank %}
+            <div class="responsive-image__image mobile-hide">
+                {{ section.settings.desktop | image_url: width: section.settings.desktop.width | image_tag: alt: section.settings.desktop.alt }}
+            </div>
+        {% endif %}
+        {% if section.settings.mobile != blank %}
+            <div class="responsive-image__image desktop-hide">
+                {{ section.settings.mobile | image_url: width: section.settings.mobile.width | image_tag: alt: section.settings.mobile.alt }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Responsive Image",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Header"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "X contains these brand-name ingredients:"
+            },
+            {
+                "type": "image_picker",
+                "id": "desktop",
+                "label": "Desktop Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "mobile",
+                "label": "Mobile Image"
+            },
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "presets": [
+            {
+                "name": "Responsive Image"
+            }
+        ]
+    }
+{% endschema %}

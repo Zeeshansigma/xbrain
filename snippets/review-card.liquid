@@ -1,0 +1,38 @@
+<div class="review-card {% if block.settings.review_image %}has-image{% endif %}">
+	<div class="review-card__author">
+		<div class="review-card__col">
+			{% if block.settings.author_image != blank %}
+				{{ block.settings.author_image | image_url: width: 100 | image_tag: alt: block.settings.author }}
+			{% endif %}
+		</div>
+		<div class="review-card__col">
+			<div class="review-card__buyer">
+				<span class="review-card__name">{{ block.settings.author }}</span>
+				<div class="review-card__verified">
+					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+						<ellipse cx="5.9691" cy="6.46275" rx="5.9691" ry="5.9691" fill="#00A44B"/>
+						<path d="M3.45703 6.46193L5.34201 8.34691L8.79781 4.89111" stroke="white" stroke-width="1.25665"/>
+					</svg>
+					<div class="review-card__verified-text">Verified buyer</div>
+				</div>
+			</div>
+			<div class="review-card__star">
+				{% for i in (1..5) %}
+					{% render 'icon-star' %}
+				{% endfor %}
+				<span>5/5<span>
+			</div>
+		</div>
+	</div>
+	<div class="review-card__review">
+		{% if block.settings.review_image != null %}
+			{{ block.settings.review_image | image_url: width: 800 | image_tag: alt: block.settings.image.alt }}
+		{% endif %}
+		{% if block.settings.title != blank %}
+			<h3 class="h5">{{ block.settings.title }}</h3>
+		{% endif %}
+		{% if block.settings.review != blank %}
+			<p>{{ block.settings.review }}</p>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,402 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="buy" class="isolate landing-buy">
+  <div id="productActionBlock" class="rich-text content-container rich-text--full-width content-container--full-width section-{{ section.id }}-padding">
+    <div class="page-width page-width-fluid">
+
+      <div class="landing-buy__blocks center">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'heading' -%}
+              <h2 class="landing-buy__heading rte {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                {{ block.settings.heading | replace: 'p>', 'span>' }}
+              </h2>
+            {%- when 'caption' -%}
+              <p
+                class="landing-buy__caption"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.caption | escape }}
+              </p>
+            {%- when 'text' -%}
+              <div class="landing-buy__text rte" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+      {% assign product = section.settings.product %}
+      {% if product and product.available %}
+      <div class="landing-buy__products">
+        <div class="landing-buy__product-card landing-buy__product-card--single">
+          <div class="landing-buy__product-card-title h1">Get 1 bottle</div>
+          <div class="landing-buy__product-card-image">
+            {% assign img = images['1bottle.png'] %}
+            <div
+              class="media media--transparent media--adapt"
+              style="padding-bottom: {{ 1 | divided_by: img.aspect_ratio | times: 100 }}%;"
+            >
+              {%- capture sizes -%}
+                (min-width: 990px) 550px, (min-width:
+                750px) 550px, calc(100vw - 30px)
+              {%- endcapture -%}
+              {{
+                img
+                | image_url: width: 1420
+                | image_tag:
+                  loading: 'lazy',
+                  sizes: sizes,
+                  widths: '275, 550, 710, 1420',
+                  class: 'multicolumn-card__image'
+              }}
+            </div>
+          </div>
+          <div class="landing-buy__product-card-price h2">
+            {{ product.price | money_without_trailing_zeros }}/BOTTLE
+          </div>
+          <div class="landing-buy__product-card-subtitle">15 servings</div>
+          <div class="landing-buy__product-card-button">
+            {% render 'landing-product-form', product: product, qty: 1 %}
+          </div>
+        </div>
+        
+        <div class="landing-buy__product-card landing-buy__product-card--popular">
+          <div class="landing-buy__product-card-top-title h2">MOST POPULAR</div>
+          <div class="landing-buy__product-card-badge">
+            {{ images['90-day-risk-free-green.png'] | image_url: width: master | image_tag: loading: 'lazy' }}
+          </div>
+          <div class="landing-buy__product-card-title h1">Buy 2, <mark>get 25% off</mark></div>
+          <div class="landing-buy__product-card-image">
+            {% assign img = images['2bottles.png'] %}
+            <div
+              class="media media--transparent media--adapt"
+              style="padding-bottom: {{ 1 | divided_by: img.aspect_ratio | times: 100 }}%;"
+            >
+              {%- capture sizes -%}
+                (min-width: 990px) 550px, (min-width:
+                750px) 550px, calc(100vw - 30px)
+              {%- endcapture -%}
+              {{
+                img
+                | image_url: width: 1420
+                | image_tag:
+                  loading: 'lazy',
+                  sizes: sizes,
+                  widths: '275, 550, 710, 1420',
+                  class: 'multicolumn-card__image'
+              }}
+            </div>
+          </div>
+          <div class="landing-buy__product-card-note">THIS OFFER ONLY AVAILABLE HERE</div>
+          <div class="landing-buy__product-card-price h2">
+            {% assign double_price = product.price | times: 2 %}
+            {% assign double_price_discount = double_price | times: 0.25 %}
+            {% assign discounted_double_price = double_price | minus: double_price_discount %}
+            {{ discounted_double_price | divided_by: 2 | money_without_trailing_zeros }}/BOTTLE
+          </div>
+          <div class="landing-buy__product-card-price-savings h2">
+            You save {{ double_price_discount | money_without_trailing_zeros }}
+          </div>
+          <div class="landing-buy__product-card-list">
+            <ul>
+              <li>• Promotes focus<sup>†</sup></li>
+              <li>• Supports memory<sup>†</sup></li>
+              <li>• Enhances productivity<sup>†</sup></li>
+              <li>• Increases time in flow state<sup>†</sup></li>
+              <li>• Improves cognition (mental processing)<sup>†</sup></li>
+              <li>• Elevates brain energy<sup>†</sup></li>
+              <li>• Promotes calm<sup>†</sup></li>
+              <li>• Caffeine Free</li>
+              <li>• Gluten Free</li>
+            </ul>
+          </div>
+          <div class="landing-buy__product-card-subtitle">
+            30 servings — Only {{ discounted_double_price | divided_by: 30 | money_without_trailing_zeros }}/serving
+          </div>
+          <div class="landing-buy__product-card-button">
+            {% render 'landing-product-form', product: product, qty: 2 %}
+          </div>
+        </div>
+        
+        <div class="landing-buy__product-card landing-buy__product-card--value">
+          <div class="landing-buy__product-card-top-title h2">BEST VALUE</div>
+          <div class="landing-buy__product-card-badge">
+            {{ images['90-day-risk-free.png'] | image_url: width: master | image_tag: loading: 'lazy' }}
+          </div>
+          <div class="landing-buy__product-card-title h1">Buy 3, <mark>get 30% off</mark></div>
+          <div class="landing-buy__product-card-image">
+            {% assign img = images['3bottles.png'] %}
+            <div
+              class="media media--transparent media--adapt"
+              style="padding-bottom: {{ 1 | divided_by: img.aspect_ratio | times: 100 }}%;"
+            >
+              {%- capture sizes -%}
+                (min-width: 990px) 550px, (min-width:
+                750px) 550px, calc(100vw - 30px)
+              {%- endcapture -%}
+              {{
+                img
+                | image_url: width: 1420
+                | image_tag:
+                  loading: 'lazy',
+                  sizes: sizes,
+                  widths: '275, 550, 710, 1420',
+                  class: 'multicolumn-card__image'
+              }}
+            </div>
+          </div>
+          <div class="landing-buy__product-card-note">THIS OFFER ONLY AVAILABLE HERE</div>
+          <div class="landing-buy__product-card-price h2">
+            {% assign tripple_price = product.price | times: 3 %}
+            {% assign tripple_price_discount = tripple_price | times: 0.3 %}
+            {% assign discounted_tripple_price = tripple_price | minus: tripple_price_discount %}
+            {{ discounted_tripple_price | divided_by: 3 | money_without_trailing_zeros }}/BOTTLE
+          </div>
+          <div class="landing-buy__product-card-price-savings h2">
+            You save {{ tripple_price_discount | money_without_trailing_zeros }}
+          </div>
+          <div class="landing-buy__product-card-subtitle">
+            45 servings — Only {{ discounted_tripple_price | divided_by: 45 | money_without_trailing_zeros }}/serving
+          </div>
+          <div class="landing-buy__product-card-button">
+            {% render 'landing-product-form', product: product, qty: 3 %}
+          </div>
+        </div>
+        
+      </div>
+      {% else %}
+        <p class="center">Error: product unavailable</p>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+
+<script>
+if (!customElements.get('product-form')) {
+  customElements.define('product-form', class ProductForm extends HTMLElement {
+    constructor() {
+      super();
+
+      this.form = this.querySelector('form');
+      this.form.querySelector('[name=id]').disabled = false;
+      this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
+      this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+      this.submitButton = this.querySelector('[type="submit"]');
+      if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
+    }
+
+    async onSubmitHandler(evt) {
+      evt.preventDefault();
+      if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
+
+      // Clear cart
+      await fetch('/cart/clear');
+
+      this.handleErrorMessage();
+
+      this.submitButton.setAttribute('aria-disabled', true);
+      this.submitButton.classList.add('loading');
+      this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+
+      const config = fetchConfig('javascript');
+      config.headers['X-Requested-With'] = 'XMLHttpRequest';
+      delete config.headers['Content-Type'];
+
+      const formData = new FormData(this.form);
+      if (this.cart) {
+        formData.append('sections', this.cart.getSectionsToRender().map((section) => section.id));
+        formData.append('sections_url', window.location.pathname);
+        this.cart.setActiveElement(document.activeElement);
+      }
+      config.body = formData;
+
+      fetch(`${routes.cart_add_url}`, config)
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.status) {
+            this.handleErrorMessage(response.description);
+
+            const soldOutMessage = this.submitButton.querySelector('.sold-out-message');
+            if (!soldOutMessage) return;
+            this.submitButton.setAttribute('aria-disabled', true);
+            this.submitButton.querySelector('span').classList.add('hidden');
+            soldOutMessage.classList.remove('hidden');
+            this.error = true;
+            return;
+          } else if (!this.cart) {
+            window._conv_q = window._conv_q || [];
+            _conv_q.push(["triggerConversion", "100431089"]);
+            
+            window.location = '/checkout';
+            return;
+          }
+
+          if (!this.error) publish(PUB_SUB_EVENTS.cartUpdate, {source: 'product-form'});
+          this.error = false;
+          const quickAddModal = this.closest('quick-add-modal');
+          if (quickAddModal) {
+            document.body.addEventListener('modalClosed', () => {
+              setTimeout(() => { this.cart.renderContents(response) });
+            }, { once: true });
+            quickAddModal.hide(true);
+          } else {
+            this.cart.renderContents(response);
+          }
+        })
+        .catch((e) => {
+          console.error(e);
+        })
+        .finally(() => {
+          this.submitButton.classList.remove('loading');
+          if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
+          if (!this.error) this.submitButton.removeAttribute('aria-disabled');
+          this.querySelector('.loading-overlay__spinner').classList.add('hidden');
+        });
+    }
+
+    handleErrorMessage(errorMessage = false) {
+      this.errorMessageWrapper = this.errorMessageWrapper || this.querySelector('.product-form__error-message-wrapper');
+      if (!this.errorMessageWrapper) return;
+      this.errorMessage = this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
+
+      this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
+
+      if (errorMessage) {
+        this.errorMessage.textContent = errorMessage;
+      }
+    }
+  });
+}
+
+</script>
+
+{% schema %}
+{
+  "name": "Buy",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "default": "<p>Talk about your brand</p>",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "t:sections.rich-text.blocks.caption.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "Add a tagline",
+          "label": "t:sections.rich-text.blocks.caption.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Buy",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

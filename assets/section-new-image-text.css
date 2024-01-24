@@ -1,0 +1,120 @@
+.new-image-text__inner {
+    display: flex;
+    gap: 8rem;
+    align-items: center;
+}
+
+.new-image-text__col {
+    flex: 1;
+}
+
+.new-image-text__wrapper {
+    position: relative;
+}
+
+.new-image-text__uppercase {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    color: #988CAE;
+    margin-bottom: .5rem;
+}
+
+.new-image-text__heading {
+    color: #4D4D4D;
+    margin: 0;
+    line-height: 1.2;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.new-image-text__description {
+    color: #4B5563;
+    line-height: 1.5;
+}
+
+.new-image-text .button--primary {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1.5rem 5rem;
+    font-size: 18px;
+    background-color: #1ea97f;
+    margin-top: 2rem;
+}
+
+.new-image-text .button--primary:after {
+    display: none;
+}
+
+.new-image-text__button {
+    max-width: fit-content;
+    text-align: center;
+}
+
+.new-image-text__disclaimer {
+    font-size: 14px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.new-image-text__image {
+    line-height: 0;
+    border: solid 6px black;
+}
+
+.new-image-text__badge {
+    width: 180px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -25%)
+}
+
+@media (min-width: 750px) {
+    .new-image-text__content--mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 749px) {
+    .new-image-text__inner {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .new-image-text__heading {
+        font-size: 3rem;
+    }
+
+    .new-image-text__content--desktop {
+        display: none;
+    }
+
+    .new-image-text__badge {
+        transform: translate(0);
+        width: 80px;
+    }
+
+    .new-image-text__image {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .new-image-text__content--mobile {
+        text-align: center;
+    }
+
+    .new-image-text__description p {
+        margin-top: 0;
+    }
+    
+    .new-image-text__button {
+        max-width: 100%;
+    }
+
+    .new-image-text__button .button {
+        width: 100%;
+    }
+}

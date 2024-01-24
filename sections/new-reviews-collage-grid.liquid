@@ -1,0 +1,262 @@
+{{ 'section-reviews-collage.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="reviews-collage section-{{ section.id }}-padding" style="background-color: {{ section.settings.background_color }}">
+<div class="page-width page-width--wide">
+
+    <div class="{{ settings.layout_horizontal }}">
+      <h2 class="h1">{{ section.settings.title }}</h2>
+      <div class="reviews-collage__grid">
+        <div class="reviews-collage__col">
+          {% for block in section.blocks %}
+            {% if block.settings.position == "1" %}
+              {% render 'review-card', block: block %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="reviews-collage__col">
+          {% for block in section.blocks %}
+            {% if block.settings.position == "2" %}
+              {% render 'review-card', block: block %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="reviews-collage__col">
+          {% for block in section.blocks %}
+            {% if block.settings.position == "3" %}
+              {% render 'review-card', block: block %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="review-collage__slider keen-slider">
+        {% for block in section.blocks %}
+          <div class="keen-slider__slide">
+            {% render 'review-card', block: block %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    var slider = new KeenSlider(".review-collage__slider", {
+      slides: {
+        perView: 1.2,
+        spacing: 10,
+      },
+      loop: false
+    }, [navigation])
+  })
+
+  function navigation(slider) {
+    let wrapper, dots, arrowLeft, arrowRight
+  
+    function markup(remove) {
+      wrapperMarkup(remove)
+      dotMarkup(remove)
+      arrowMarkup(remove)
+    }
+  
+    function removeElement(elment) {
+      elment.parentNode.removeChild(elment)
+    }
+    function createDiv(className) {
+      var div = document.createElement("div")
+      var classNames = className.split(" ")
+      classNames.forEach((name) => div.classList.add(name))
+      return div
+    }
+  
+    function arrowMarkup(remove) {
+      if (remove) {
+        removeElement(arrowLeft)
+        removeElement(arrowRight)
+        return
+      }
+      console.log("slider", slider)
+      arrowLeft = slider.container.classList.contains("thumbnails-slider--mobile") ? createDiv("arrow arrow--left--mobile") : createDiv("arrow arrow--left")
+      arrowLeft.addEventListener("click", () => slider.prev())
+      arrowRight = slider.container.classList.contains("thumbnails-slider--mobile") ? createDiv("arrow arrow--right--mobile") : createDiv("arrow arrow--right")
+      arrowRight.addEventListener("click", () => slider.next())
+  
+      wrapper.appendChild(arrowLeft)
+      wrapper.appendChild(arrowRight)
+    }
+  
+    function wrapperMarkup(remove) {
+      if (remove) {
+        var parent = wrapper.parentNode
+        while (wrapper.firstChild)
+          parent.insertBefore(wrapper.firstChild, wrapper)
+        removeElement(wrapper)
+        return
+      }
+      wrapper = createDiv("navigation-wrapper")
+      slider.container.parentNode.appendChild(wrapper)
+      wrapper.appendChild(slider.container)
+    }
+  
+    function dotMarkup(remove) {
+      if (remove) {
+        removeElement(dots)
+        return
+      }
+      dots = createDiv("dots")
+      slider.track.details.slides.forEach((_e, idx) => {
+        var dot = createDiv("dot")
+        dot.addEventListener("click", () => slider.moveToIdx(idx))
+        dots.appendChild(dot)
+      })
+      wrapper.appendChild(dots)
+    }
+  
+    function updateClasses() {
+      var slide = slider.track.details.rel
+      slide === 0
+        ? arrowLeft.classList.add("arrow--disabled")
+        : arrowLeft.classList.remove("arrow--disabled")
+      slide === slider.track.details.slides.length - 1
+        ? arrowRight.classList.add("arrow--disabled")
+        : arrowRight.classList.remove("arrow--disabled")
+      Array.from(dots.children).forEach(function (dot, idx) {
+        idx === slide
+          ? dot.classList.add("dot--active")
+          : dot.classList.remove("dot--active")
+      })
+    }
+  
+    slider.on("created", () => {
+      markup()
+      updateClasses()
+    })
+    slider.on("optionsChanged", () => {
+      console.log(2)
+      markup(true)
+      markup()
+      updateClasses()
+    })
+    slider.on("slideChanged", () => {
+      updateClasses()
+    })
+    slider.on("destroyed", () => {
+      markup(true)
+    })
+  }
+</script>
+
+{% schema %}
+{
+	"name": "Reviews Collage",
+	"settings": [
+		{
+			"type": "color",
+			"id": "background_color",
+			"label": "Background Color",
+			"default": "#EAE9F1"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title",
+			"default": "Stories from Our Community"
+		},
+		{
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+	],
+	"blocks": [
+		{
+			"type": "review",
+			"name": "Review",
+			"settings": [
+				{
+					"type": "select",
+					"id": "position",
+					"label": "Position",
+					"options": [
+						{
+							"value": "1",
+							"label": "1"
+						},
+						{
+							"value": "2",
+							"label": "2"
+						},
+						{
+							"value": "3",
+							"label": "3"
+						}
+					],
+					"default": "1"
+				},
+				{
+					"type": "image_picker",
+					"id": "author_image",
+					"label": "Image"
+				},
+				{
+					"type": "text",
+					"id": "author",
+					"label": "Author Name",
+					"default": "John D."
+				},
+				{
+					"type": "image_picker",
+					"id": "review_image",
+					"label": "Review Image"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title",
+					"default": "Great Puzzles!"
+				},
+				{
+					"type": "text",
+					"id": "review",
+					"label": "Review",
+					"default": "I never realized how much I enjoyed puzzles until I got a subscription from Puzzle Monthly. Each puzzle is high quality and provides hours of fun. I love it!"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Reviews Collage"
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,131 @@
+{{ 'section-new-hero-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding new-hero-banner">
+    <div class="new-hero-banner__image">
+        {{ section.settings.background_image | image_url: width: 2000 | image_tag: class: "new-hero-banner__image--desktop" }}
+        {{ section.settings.background_image_mobile | image_url: width: 900 | image_tag: class: "new-hero-banner__image--mobile" }}
+    </div>
+    <div class="page-width page-width--wide-less">
+        <div class="new-hero-banner__content">
+            <div class="new-hero-banner__reviews">
+                <div class="reviews__stars">
+                    {% for i in (1..5) %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                            <path d="M8.46636 0.283447L11.1743 4.95937L16.4327 6.10461L12.8479 10.1397L13.3898 15.5234L8.46636 13.3414L3.54288 15.5234L4.08486 10.1397L0.5 6.10461L5.75845 4.95937L8.46636 0.283447Z" fill="#FF6600"/>
+                        </svg>
+                    {% endfor %}
+                </div>
+                <div class="reviews__text">{{ section.settings.reviews_text }}</div>
+            </div>
+            <h2 class="new-hero-banner__heading">{{ section.settings.heading }}</h2>
+            <div class="new-hero-banner__subheading">{{ section.settings.subheading }}</div>
+            <a href="#productActionBlock" class="button button--primary new-hero-banner__button">{{ section.settings.button_label }}</a>
+            <div class="new-hero-banner__disclaimer">{{ section.settings.disclaimer }}</div>
+            <div class="new-hero-banner__labels">
+                {{ section.settings.labels_image | image_url: width: 600 | image_tag: alt: section.settings.labels_image.alt }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "New Hero Banner",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "background_image",
+                "label": "Background Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "background_image_mobile",
+                "label": "Background Image (Mobile)"
+            },
+            {
+                "type": "text",
+                "id": "reviews_text",
+                "label": "Review Text",
+                "default": "Over 10,000 happy customers"
+            }, 
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "The World’s Most Powerful Brain Supplement"
+            },
+            {
+                "type": "richtext",
+                "id": "subheading",
+                "label": "Subheading",
+                "default": "<p>Experience unparalleled mental clarity and cognitive boost with X: no crash, no comedown, no jitters.</p>"
+            },
+            {
+                "type": "text",
+                "id": "button_label",
+                "label": "Button Label",
+                "default": "Try X Now - Risk Free"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button Url"
+            },
+            {
+                "type": "text",
+                "id": "disclaimer",
+                "label": "Disclaimer",
+                "default": "90-Day Money Back Guarantee"
+            },
+            {
+                "type": "image_picker",
+                "id": "labels_image",
+                "label": "Labels Image"
+            },
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "blocks": [],
+        "presets": [
+            {
+                "name": "New Hero Banner"
+            }
+        ]
+    }
+{% endschema %}

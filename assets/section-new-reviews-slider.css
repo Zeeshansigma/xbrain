@@ -1,0 +1,100 @@
+.new-reviews-slider__poster .image {
+    line-height: 0;
+    object-fit: cover;
+}
+
+.new-reviews-slider__poster .image img {
+    object-fit: cover;
+    object-position: center;
+    max-height: 100%;
+}
+
+/* .new-reviews-slider__poster {
+    position: relative;
+    cursor: pointer;
+    border: solid 3px black;
+    aspect-ratio: 9/11;
+    display: flex;
+} */
+
+.new-reviews-slider__poster {
+    position: relative;
+    cursor: pointer;
+    border: solid 3px black;
+    display: flex;
+
+    /* Set width and padding-top to maintain aspect ratio */
+    width: 100%; /* Adjust this as needed */
+    padding-top: 122.22%; /* (11 / 9) * 100% */
+}
+
+.new-reviews-slider__poster > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.new-reviews-slider__poster .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: .6rem 3rem;
+    background-color: rgba(0, 0, 0, .71);
+    border-radius: 10px;
+    line-height: 0;
+    height: fit-content;
+    width: fit-content;
+}
+
+.play-button svg {
+    width: 40px;
+    height: auto;
+    color: white;
+}
+
+.new-reviews-slider__author {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+.new-reviews-slider__verified {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: center;
+    margin-top: .5rem;
+}
+
+.new-reviews-slider__verified svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 1099px) {
+    .new-reviews-slider .dots {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .new-reviews-slider .dot {
+        width: 12px;
+        height: 12px;
+        background-color: #CCCCCC;
+        border: solid 1px #5B5B5B;
+        display: block !important;
+        border-radius: 50%;
+    }
+
+    .new-reviews-slider .dot--active {
+        background-color: #5B5B5B;
+    }
+}

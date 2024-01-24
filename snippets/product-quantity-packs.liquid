@@ -1,0 +1,184 @@
+<fieldset class="js product-form__input product-form__quantity-packs">
+  <legend class="form__label">QUANTITY</legend>        
+  <input type="radio" id="quantity-pack-1" name="quantityPack" value="1" form="{{ product_form_id }}" checked>
+  <label for="quantity-pack-1">
+    <span class="option-name-main">1 bottle</span>
+    <span class="option-name-secondary js-otp-price"><span class="money">$62.00</span> each</span>
+    <span class="option-name-secondary js-sbscr-price hidden"><span class="money">$52.70</span> each</span>
+  </label>
+  <input type="radio" id="quantity-pack-2" name="quantityPack" value="2" form="{{ product_form_id }}">
+  <label for="quantity-pack-2">
+    <span class="option-name-main">2 bottles</span>
+    <span class="option-name-secondary js-otp-price"><span class="money">$59.00</span> each</span>
+    <span class="option-name-secondary js-sbscr-price hidden"><span class="money">$52.70</span> each</span>
+  </label>
+  <input type="radio" id="quantity-pack-3" name="quantityPack" value="3" form="{{ product_form_id }}">
+  <label for="quantity-pack-3">
+    <span class="option-name-main">3 bottles</span>
+    <span class="option-name-secondary js-otp-price"><span class="money">$56.00</span> each</span>
+    <span class="option-name-secondary js-sbscr-price hidden"><span class="money">$52.70</span> each</span>
+  </label>
+</fieldset>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let qtyBtns = document.querySelectorAll('.product-form__quantity-packs input[name="quantityPack"]');
+  let qtyInput = document.querySelector('quantity-input input[name="quantity"]');
+  
+  qtyBtns.forEach(function (btn) {
+    btn.addEventListener('change', function () {
+      let qty = this.value;
+      qtyInput.value = qty;
+      updatePrice(qty);
+    });
+  });
+  qtyInput.addEventListener('change', function () {
+    let qty = this.value;
+    if (qty > 3) {
+      qtyBtns.forEach(function (btn) {
+        btn.checked = false;
+      });
+    } else {
+      let selector = `#quantity-pack-${qty}`;
+      document.querySelector(selector).checked = true;
+    }
+    updatePrice(qty);
+  });
+
+  // Reset quantity buttons to 1 when subsciption widget gets changed
+  // & update prices on qty buttons
+  document.addEventListener( 'click', function (event) {
+    var element = event.target;
+    if(element.name == 'selling_plan'){
+      qtyBtns[0].click();
+      updateBtnsPrices(element);
+    }
+  });
+  
+
+  function updatePrice(qty) {
+    // Skipt for subscription option
+    let subscribeOptionInput = document.querySelector('input[value="688486678841"]');
+    if (subscribeOptionInput.checked) {
+      updatePriceSubscription(qty);
+      return;
+    }
+
+    let priceOTPButton = document.querySelector('.appstle_subscription_amount');
+    
+    let priceElement = document.querySelector('.product__price .price__regular');
+    const regularPrice = 62;
+    let priceHTML, discountedPrice, discount;
+    if (qty == 1) {
+      priceHTML = `
+        <span class="visually-hidden visually-hidden--inline">Regular price</span>
+        <span class="price-item price-item--regular" data-appstle-price-modified="true">
+          <span class="money">$${(regularPrice).toFixed(2)}</span>
+        </span>
+      `;
+      priceOTPButton.innerHTML = `
+        <span class="money">$${(regularPrice).toFixed(2)}</span>
+      `;
+    } else {
+      switch (qty) {
+        case '2':
+          discountedPrice = 59;
+          break;
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+          discountedPrice = 56;
+          break;
+        case '8':
+        case '9':
+        case '10':
+        case '11':
+          discountedPrice = 54;
+          break;
+        case '12':
+        case '13':
+        case '14':
+        case '15':
+          discountedPrice = 52;
+          break;
+        case '16':
+        case '17':
+        case '18':
+        case '19':
+          discountedPrice = 50;
+          break;
+        default:
+          discountedPrice = 48;
+      }
+      discount = regularPrice - discountedPrice;
+      priceHTML = `
+        <span class="visually-hidden visually-hidden--inline">Regular price</span>
+        <span class="price-item price-item--regular appstle_subscription_final_price" style="">
+          <span class="money">$${(discountedPrice * qty).toFixed(2)}</span>
+        </span>
+        <span class="price-item price-item--regular" style="text-decoration: line-through;" data-appstle-price-modified="true">
+          <span class="money">$${(regularPrice * qty).toFixed(2)}</span>
+        </span>
+        <span class="appstle_subscription_element appstle_subscription_save"> SAVE <span class="money">$${(discount * qty).toFixed(2)}</span></span>
+      `;
+      priceOTPButton.innerHTML = `
+        <span class="money">$${(discountedPrice).toFixed(2)}</span>
+      `;
+    }
+    priceElement.innerHTML = priceHTML;
+    runCurrencyConverter();
+  }
+
+  function updatePriceSubscription(qty) {
+    let priceElement = document.querySelector('.product__price .price__regular');
+    const regularPrice = 62;
+    const discountedPrice = 52.7;
+    const discount = regularPrice - discountedPrice;
+    let priceHTML = `
+      <span class="visually-hidden visually-hidden--inline">Regular price</span>
+      <span class="price-item price-item--regular appstle_subscription_final_price" style="">
+        <span class="money">$${(discountedPrice * qty).toFixed(2)}</span>
+      </span>
+      <span class="price-item price-item--regular" style="text-decoration: line-through;" data-appstle-price-modified="true">
+        <span class="money">$${(regularPrice * qty).toFixed(2)}</span>
+      </span>
+      <span class="appstle_subscription_element appstle_subscription_save"> SAVE <span class="money">$${(discount * qty).toFixed(2)}</span></span>
+    `;
+    priceElement.innerHTML = priceHTML;
+    runCurrencyConverter();
+  }
+
+  function updateBtnsPrices(element) {
+    let tabindex = element.getAttribute('tabindex');
+    let otpPrices = document.querySelectorAll('.js-otp-price');
+    let sbscrPrices = document.querySelectorAll('.js-sbscr-price');
+    // 2 is subscription option
+    if (tabindex == 2) {
+      otpPrices.forEach(function(p) {
+        p.classList.add('hidden');
+      });
+      sbscrPrices.forEach(function(p) {
+        p.classList.remove('hidden');
+      });
+    } else {
+      otpPrices.forEach(function(p) {
+        p.classList.remove('hidden');
+      });
+      sbscrPrices.forEach(function(p) {
+        p.classList.add('hidden');
+      });
+    }
+  }
+
+  function runCurrencyConverter() {
+    if (typeof DoublyGlobalCurrency !== 'undefined') {
+      var currentCurrency = DoublyGlobalCurrency.currentCurrency;
+      // DoublyGlobalCurrency.moneyFormats.USD.money_with_currency_format = {% raw %}"${{amount}}"{% endraw %};
+      DoublyGlobalCurrency.convertAll(currentCurrency);
+    }
+  }
+  
+});
+</script>

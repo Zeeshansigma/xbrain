@@ -1,0 +1,99 @@
+{{ 'section-new-brain.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding new-brain">
+    <div class="new-brain__container">
+        <div class="new-brain__image">
+            {{ section.settings.image | image_url: width: 1000 | image_tag: alt: section.settings.image.alt }}
+        </div>
+        {% for block in section.blocks %}
+            <div class="new-brain__item item--{{ forloop.index }} item--desktop" {{ block.shopify_attributes }}>
+                <div class="new-brain__heading">{{ block.settings.heading }}</div>
+                <div class="new-brain__description">{{ block.settings.description }}</div>
+                <div class="new-brain__line"></div>
+            </div>
+            <div class="new-brain__item item--{{ forloop.index }} item--mobile" {{ block.shopify_attributes }}>
+                <div class="new-brain__number">{{ forloop.index }}</div>
+                <div class="new-brain__content">
+                    <div class="new-brain__heading">{{ block.settings.heading }}</div>
+                    <div class="new-brain__description">{{ block.settings.description }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "New Brain",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "blocks": [
+            {
+                "type": "item",
+                "name": "Item",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading",
+                        "default": "Improved executive functions"
+                    },
+                    {
+                        "type": "text",
+                        "id": "description",
+                        "label": "Description",
+                        "default": "Enhances decision-making and problem-solving skills."
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "New Brain"
+            }
+        ]
+    }
+{% endschema %}

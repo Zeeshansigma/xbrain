@@ -1,0 +1,261 @@
+{{ 'section-new-variant-choice.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding new-variant-choice" id="productActionBlock">
+    <div class="page-width page-width--wide">
+      {% assign product = section.settings.product %}
+      {% if product and product.available %}
+      <div class="new-variant-choice__products">
+        <div class="new-variant-choice__product-card new-variant-choice__product-card--single">
+            <div class="new-variant-choice__inner-card">
+                <div class="new-variant-choice__product-card-title">Get 1 bottle</div>
+                <div class="new-variant-choice__product-card-image">
+                    {% assign img = images['1bottle.png'] %}
+                    {{
+                        img
+                        | image_url: width: 1420
+                        | image_tag:
+                        loading: 'lazy'
+                    }}
+                </div>
+                <div class="new-variant-choice__product-card-price">
+                    <div class="new-variant-choice__price">
+                        {{ product.price | money }}
+                    </div>
+                    {% if product.compare_at_price > product.price %}
+                        <div class="new-variant-choice__compare-at-price">{{ product.compare_at_price }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="new-variant-choice__per-bottle">Price per bottle</div>
+                <div class="new-variant-choice__product-card-button">
+                  <div class="landing-buy__product-card-button">
+                    {% render 'landing-product-form', product: product, qty: 1 %}
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="new-variant-choice__product-card new-variant-choice__product-card--popular">
+            <div class="new-variant-choice__product-card-top-title">MOST POPULAR</div>
+            <div class="new-variant-choice__inner-card">
+                <div class="new-variant-choice__product-card-title">Buy 2, get 25% off</div>
+                <div class="new-variant-choice__product-card-image">
+                    <div class="bubble">
+                        25% Off
+                    </div>
+                    {% assign img = images['2bottles.png'] %}
+                    {{
+                        img
+                        | image_url: width: 1420
+                        | image_tag:
+                        loading: 'lazy'
+                    }}
+                </div>
+                <div class="new-variant-choice__product-card-price">
+                    {% assign double_price = product.price | times: 2 %}
+                    {% assign double_price_discount = double_price | times: 0.25 %}
+                    {% assign discounted_double_price = double_price | minus: double_price_discount %}
+
+                    <div class="new-variant-choice__price">
+                        {{ discounted_double_price | divided_by: 2 | money }}
+                    </div>
+
+                    <div class="new-variant-choice__compare-at-price">{{ product.price | money }}</div>                    
+    
+                </div>
+
+                <div class="new-variant-choice__per-bottle">Price per bottle</div>
+
+                <div class="new-variant-choice__product-card-subtitle">
+                    30 servings — Only {{ discounted_double_price | divided_by: 30 | money }}/serving
+                </div>
+                <div class="new-variant-choice__product-card-button">
+                    {% render 'landing-product-form', product: product, qty: 2 %}
+                </div>
+
+                <div class="new-variant-choice__savings">
+                    Total Savings: {{ double_price_discount | money }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="new-variant-choice__product-card new-variant-choice__product-card--value">
+            <div class="new-variant-choice__product-card-top-title">BEST VALUE</div>
+            <div class="new-variant-choice__inner-card">
+                <div class="new-variant-choice__product-card-title">Buy 3, get 30% off</div>
+                <div class="new-variant-choice__product-card-image">
+                    <div class="bubble">
+                        30% Off
+                    </div>
+                    {% assign img = images['3bottles.png'] %}
+                    {{
+                        img
+                        | image_url: width: 1420
+                        | image_tag:
+                        loading: 'lazy'
+                    }}
+                </div>
+                <div class="new-variant-choice__product-card-price">
+                    {% assign tripple_price = product.price | times: 3 %}
+                    {% assign tripple_price_discount = tripple_price | times: 0.3 %}
+                    {% assign discounted_tripple_price = tripple_price | minus: tripple_price_discount %}
+                    <div class="new-variant-choice__price">
+                        {{ discounted_tripple_price | divided_by: 3 | money }}
+                    </div>
+                    <div class="new-variant-choice__compare-at-price">{{ product.price | money }}</div>
+                </div>
+                <div class="new-variant-choice__per-bottle">Price per bottle</div>
+
+                <div class="new-variant-choice__product-card-subtitle">
+                    45 servings — Only {{ discounted_tripple_price | divided_by: 45 | money }}/serving
+                </div>
+
+                <div class="new-variant-choice__product-card-button">
+                    {% render 'landing-product-form', product: product, qty: 3 %}
+                </div>
+                <div class="new-variant-choice__savings">
+                    Total Savings: {{ tripple_price_discount | money }}
+                </div>
+            </div>
+        </div>
+        
+      </div>
+      {% else %}
+        <p class="center">Error: product unavailable</p>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+
+<script>
+if (!customElements.get('product-form')) {
+  customElements.define('product-form', class ProductForm extends HTMLElement {
+    constructor() {
+      super();
+
+      this.form = this.querySelector('form');
+      this.form.querySelector('[name=id]').disabled = false;
+      this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
+      this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+      this.submitButton = this.querySelector('[type="submit"]');
+      if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
+    }
+
+    async onSubmitHandler(evt) {
+      evt.preventDefault();
+      if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
+
+      // Clear cart
+      await fetch('/cart/clear');
+
+      this.handleErrorMessage();
+
+      this.submitButton.setAttribute('aria-disabled', true);
+      this.submitButton.classList.add('loading');
+      this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+
+      const config = fetchConfig('javascript');
+      config.headers['X-Requested-With'] = 'XMLHttpRequest';
+      delete config.headers['Content-Type'];
+
+      const formData = new FormData(this.form);
+      config.body = formData;
+
+      fetch(`${routes.cart_add_url}`, config)
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.status) {
+            this.handleErrorMessage(response.description);
+            return;
+          }
+
+          window._conv_q = window._conv_q || [];
+          _conv_q.push(["triggerConversion", "100431089"]);
+
+          // Redirect to checkout
+          window.location.href = '/checkout';
+        })
+        .catch((e) => {
+          console.error(e);
+        })
+        .finally(() => {
+          this.submitButton.classList.remove('loading');
+          this.querySelector('.loading-overlay__spinner').classList.add('hidden');
+          this.submitButton.removeAttribute('aria-disabled');
+        });
+    }
+
+
+    handleErrorMessage(errorMessage = false) {
+      this.errorMessageWrapper = this.errorMessageWrapper || this.querySelector('.product-form__error-message-wrapper');
+      if (!this.errorMessageWrapper) return;
+      this.errorMessage = this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
+
+      this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
+
+      if (errorMessage) {
+        this.errorMessage.textContent = errorMessage;
+      }
+    }
+  });
+}
+
+</script>
+
+{% schema %}
+    {
+        "name": "New Variant Choice",
+        "settings": [
+            {
+                "type": "product",
+                "id": "product",
+                "label": "Product"
+            },
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "blocks": [],
+        "presets": [
+            {
+                "name": "New Variant Choice"
+            }
+        ]
+    }
+{% endschema %}

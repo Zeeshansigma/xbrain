@@ -1,0 +1,35 @@
+<collapsible-element>
+    <h3 class="collapsible__title" {{ block.shopify_attributes }} data-ingredient="{{ block.settings.name }}" {% if open %} active="true"{% endif %}>
+        <div class="ingredient-list__info">
+            {% if block.settings.name != blank %}
+                <div>Ingredient: <span>{{ block.settings.name }}</span></div>
+            {% endif %}
+            {% if block.settings.brand != blank %}
+                <div>Brand Name: <span>{{ block.settings.brand }}</span></div>
+            {% endif %}
+        </div>
+        <span class="collapsible__icons">
+            {% render "icon-plus" %}
+            {% render "icon-minus" %}
+        </span>
+    </h3>
+    <div class="collapsible__content">
+        {% if block.settings.image != blank %}
+            <div class="ingredient-list__image">
+                {{ block.settings.image | image_url: width: 300 | image_tag: block.settings.image.alt }}
+            </div>
+        {% endif %}
+        <div class="ingredient-list__content">
+            {% if block.settings.per_serving != blank %}
+                <div class="ingredient-list__per-serving">
+                    <span>Per Serving:</span> <span class="mg">{{ block.settings.per_serving }}</span>
+                </div>
+            {% endif %}
+            {% if block.settings.benefits != blank %}
+                <div class="ingredient-list__benefits">
+                    <span>Benefits:</span> {{ block.settings.benefits }}†
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</collapsible-element>

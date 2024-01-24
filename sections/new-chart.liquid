@@ -1,0 +1,298 @@
+{{ 'section-new-chart.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding new-chart">
+    <div class="page-width page-width--wide">
+        <div class="new-chart__head">
+            {% if section.settings.uppercase != blank %}
+                <div class="new-chart__uppercase">{{ section.settings.uppercase }}</div>
+            {% endif %}
+            {% if section.settings.heading != blank %}
+                <h2 class="new-chart__heading">{{ section.settings.heading }}</h2>
+            {% endif %}
+        </div>
+        <div class="new-chart__inner">
+            <div class="new-chart__col">
+                {% if section.settings.description != blank %}
+                    <div class="new-chart__description">{{ section.settings.description }}</div>
+                {% endif %}
+                <div class="new-chart__icons">
+                    {% for block in section.blocks %}
+                        {% if block.type == "icon-text" %}
+                            <div class="new-chart__icon-text">
+                                <div class="new-chart__icon">{{ block.settings.icon }}</div>
+                                <div class="new-chart__icon-content">
+                                    {% if block.settings.heading != blank %}
+                                        <div class="new-chart__icon-heading">{{ block.settings.heading }}</div>
+                                    {% endif %}
+                                    {% if block.settings.description != blank %}
+                                        <div class="new-chart__icon-description">{{ block.settings.description }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="new-chart__col">
+                <div class="new-chart__table">
+                    <div class="new-chart__row new-chart__head">
+                        <div class="new-chart__cell"></div>
+                        <div class="new-chart__cell"><strong>Brand-Name Ingredients</strong></div>
+                        <div class="new-chart__cell"><strong>Price Per Serving (Without Discount)</strong></div>
+                    </div>
+                    {% assign isFirst = true %}
+                    {% for block in section.blocks %}
+                        {% if block.type == "table-row" %}
+                            <div class="new-chart__row{% if isFirst %} new-chart__row--first{% endif %}">
+                                {% if isFirst %}
+                                    <div class="new-chart__cell">
+                                        <div class="first-cell__image">
+                                            <img src="https://cdn.shopify.com/s/files/1/0731/9506/1561/files/b7f8564a361b7125e28b7424da19bd46.png?v=1704350746" alt="product image">
+                                        </div>
+                                        <div class="first-cell__title"><strong style="font-size: 15px;">X</strong> — The Ultimate<br><strong>Brain Performance Enhancer</strong></div>
+                                    </div>
+                                {% else %}
+                                    <div class="new-chart__cell">{{ block.settings.label }}</div>
+                                {% endif %}
+                                <div class="new-chart__cell">{{ block.settings.brand_ingredients }}</div>
+                                <div class="new-chart__cell">{{ block.settings.price }}</div>
+                            </div>
+                            {% assign isFirst = false %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% if section.settings.image != blank %}
+                    <div class="new-chart__image">{{ section.settings.image | image_url: width: 1000 | image_tag: alt: section.settings.image.alt }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="new-chart__cta">
+            <div class="new-chart__cta-col">
+                <div class="new-chart__button-wrapper">
+                    {% if section.settings.button_label != blank %}
+                        <a href="#productActionBlock" class="button button--primary">{{ section.settings.button_label }}</a>
+                    {% endif %}
+                    {% if section.settings.disclaimer != blank %}
+                        <div class="new-chart__disclaimer">{{ section.settings.disclaimer }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="new-chart__cta-col">
+                {% if section.settings.video != blank %}
+                    <div class="new-chart__video-play button button--outline play-button" data-video-src="{{ section.settings.video.sources[1].url }}" data-video-src-mobile="{{ section.settings.video_mobile.sources[1].url }}">
+                        <span>Learn about X</span>
+                        <span class="button-play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
+                                <path d="M4.43555 4.8328V11.092C4.43555 11.5693 4.96117 11.8593 5.36596 11.5995L10.2839 8.46988C10.6585 8.23426 10.6585 7.69051 10.2839 7.44884L5.36596 4.3253C4.96117 4.06551 4.43555 4.35551 4.43555 4.8328Z" fill="black"/>
+                            </svg>
+                        </span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="video-wrapper-chart">
+    <div class="video-wrapper-chart__close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div class="video-wrapper-chart__container">
+    </div>
+</div>
+
+<script>
+    const videoCloseChart = document.querySelector(".video-wrapper-chart__close")
+    const videoPopupChart = document.querySelector(".video-wrapper-chart")
+    const videoContainerChart = document.querySelector(".video-wrapper-chart__container")
+
+    document.querySelectorAll('.new-chart__video-play').forEach(videoWrapper => {
+        videoWrapper.addEventListener('click', function() {
+            if (window.innerWidth < 750) {
+                var video = this.dataset.videoSrcMobile;
+            } else {
+                var video = this.dataset.videoSrc;
+            }
+            openPopup(video)
+            videoContainerChart.querySelector("video").addEventListener('webkitendfullscreen', function() {
+                closePopup()
+            }, false);
+        })
+
+        videoCloseChart.addEventListener('click', function() {
+            closePopup()
+        })
+
+        videoPopupChart.addEventListener('click', function(e) {
+            closePopup()
+        })
+
+        function closePopup() {
+            videoPopupChart.style.display = "none";
+            videoContainerChart.innerHTML = "";
+            videoContainerChart.querySelector('video').pause()
+
+        }
+
+        function openPopup(video) {
+            videoPopupChart.style.display = "flex";
+            videoContainerChart.innerHTML = `<video controls autoplay>
+            <source src="${video}" type="video/mp4" />
+            </video>`;
+
+            videoContainerChart.querySelector('video').play()
+        }
+    });
+</script>
+
+{% schema %}
+    {
+        "name": "New Chart",
+        "settings": [
+            {
+                "type": "video",
+                "id": "video",
+                "label": "Video"
+            },
+            {
+                "type": "video",
+                "id": "video_mobile",
+                "label": "video_mobile"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "uppercase",
+                "label": "Uppercase",
+                "default": "The Power of Quality Ingredients"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Why Brand-Name Ingredients Set X Apart"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description",
+                "default": "<p>Not all ingredients have a brand-name version. For ones that do, the manufacturer is staking its reputation on the quality and effectiveness of the ingredient.</p>"
+            },
+            {
+                "type": "text",
+                "id": "button_label",
+                "label": "Button Label",
+                "default": "Try X Now - Risk Free"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            },
+            {
+                "type": "text",
+                "id": "disclaimer",
+                "label": "Disclaimer",
+                "default": "90-Day Money Back Guarantee"
+            },
+            {
+                "type": "header",
+                "content": "Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 36
+            }
+        ],
+        "blocks": [
+            {
+                "type": "icon-text",
+                "name": "Icon with text",
+                "settings": [
+                    {
+                        "type": "liquid",
+                        "id": "icon",
+                        "label": "icon"
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading",
+                        "default": "Higher Quality Standards"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description",
+                        "default": "<p>Brand-name ingredients are held to the highest quality standards, ensuring superior efficacy and purity.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "table-row",
+                "name": "Table Row",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "label",
+                        "label": "Label",
+                        "default": "Qualia Mind®"
+                    },
+                    {
+                        "type": "text",
+                        "id": "brand_ingredients",
+                        "label": "Brand Ingredients",
+                        "default": "0"
+                    },
+                    {
+                        "type": "text",
+                        "id": "price",
+                        "label": "Price",
+                        "default": "$4.47"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "New Chart"
+            }
+        ]
+    }
+{% endschema %}
