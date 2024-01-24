@@ -1,1 +1,432 @@
-{"sections":{"6e3b22bd-93f1-4639-a04b-06058fae52a0":{"type":"rich-text","blocks":{"template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-0":{"type":"heading","settings":{"heading":"<p>THE WORLD’S MOST POWERFUL BRAIN SUPPLEMENT<\/p>","heading_size":"h2"}},"template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-1":{"type":"text","settings":{"text":"<p>We guarantee that <a href=\"#brand\" title=\"#brand\">X<\/a> will deliver a greater increase in brain performance* than any other supplement you’ve tried, or we’ll buy you that supplement.  <\/p>"}}},"block_order":["template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-0","template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-1"],"custom_css":[".rich-text__blocks {max-width: none;}",".rich-text__text {margin-top: 1.3rem; font-size: 2.8rem; line-height: 1.3;}"],"settings":{"desktop_content_position":"center","content_alignment":"left","color_scheme":"accent-1","full_width":true,"padding_top":40,"padding_bottom":40}},"50283304-6690-458e-9a03-67d508cbda23":{"type":"rich-text","blocks":{"template--18160491004217__50283304-6690-458e-9a03-67d508cbda23-16775692587c6a3d22-1":{"type":"text","settings":{"text":"<p><a href=\"\/pages\/x-guarantee\" title=\"X guarantee\">See details of this unprecedented guarantee<\/a><\/p>"}}},"block_order":["template--18160491004217__50283304-6690-458e-9a03-67d508cbda23-16775692587c6a3d22-1"],"custom_css":[".rich-text__text {text-transform: uppercase; color: var(--gradient-base-accent-1);}"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"background-1","full_width":true,"padding_top":20,"padding_bottom":52}},"391fd68f-cb44-42d8-96ae-836e70f22e66":{"type":"multicolumn","blocks":{"template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-0":{"type":"column","settings":{"title":"","text":"<p>FOCUS<strong> *<\/strong><br\/>ENERGY<strong> *<\/strong><br\/>ATTENTION<strong> *<\/strong><br\/>COGNITION<strong> *<\/strong><br\/>MEMORY<strong> *<\/strong><\/p>","link_label":"","link":""}},"template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-1":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/mri-neuroscience2_a5ff3aec-0c31-4301-a3e3-cab716b00ff3.jpg","title":"","text":"<p>100% SCIENCE-DRIVEN FORMULATION<\/p>","link_label":"","link":""}}},"block_order":["template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-0","template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-1"],"custom_css":[".multicolumn-list {gap: 0;}",".multicolumn-list__item {font-family: Roboto, sans-serif; font-size: 38px; font-weight: 900; line-height: 1.2;}",".multicolumn-list__item:first-child {--gradient-base-background-2: #e4eaff; font-size: 40px;}",".multicolumn-list__item:first-child strong {font-size: 14px; vertical-align: top;}",".multicolumn-list__item:first-child > div {display: flex; justify-content: center; padding-top: 1rem;}",".multicolumn-card-spacing {margin: 0; padding: 0;}",".multicolumn-card__info {padding: 1.5rem;}"],"settings":{"title":"","heading_size":"h2","image_width":"full","image_ratio":"adapt","columns_desktop":2,"column_alignment":"left","background_style":"primary","button_label":"","button_link":"","color_scheme":"background-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":0,"padding_bottom":36}},"4df674c3-46e3-4265-8405-495f284d2344":{"type":"x-promotes","blocks":{"1ec092de-eda8-49a7-86f1-25d6888fa9ec":{"type":"column-image","settings":{"image":"shopify:\/\/shop_images\/Image_7_25a3c3ab-44ca-4525-8f8e-8b6419d9e5b0.png","title":"This serving of X delivers exactly what your brain needs.*","text":"<p>Powered by the latest research in neuroscience.<\/p>","link_label":"See why <span class=\"brand\">X<\/span> is the best","link":"shopify:\/\/pages\/why-x-is-the-best","text_footer":"<p>* — These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.<\/p>"}},"6d92b3fb-766a-4ee0-b4d7-f70827a15c44":{"type":"column-list","settings":{"title":"X PROMOTES THE FOLLOWING:","list":"<p><a href=\"\/pages\/why-x-is-the-best#heading_1\" title=\"\/pages\/why-x-is-the-best#heading_1\">1. ELEVATED COGNITIVE FUNCTION*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_2\" title=\"\/pages\/why-x-is-the-best#heading_2\">2. IMPROVED FOCUS AND CONCENTRATION*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_3\" title=\"\/pages\/why-x-is-the-best#heading_3\">3. INCREASED NEUROPLASTICITY*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_4\" title=\"\/pages\/why-x-is-the-best#heading_4\">4. ENHANCED MOTIVATION AND DRIVE*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_5\" title=\"\/pages\/why-x-is-the-best#heading_5\">5. POSITIVE MOOD*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_6\" title=\"\/pages\/why-x-is-the-best#heading_6\">6. IMPROVED MEMORY*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_7\" title=\"\/pages\/why-x-is-the-best#heading_7\">7. ENERGY AND ALERTNESS*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_8\" title=\"\/pages\/why-x-is-the-best#heading_8\">8. REDUCED STRESS*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_9\" title=\"\/pages\/why-x-is-the-best#heading_9\">9. OVERALL BRAIN HEALTH*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_10\" title=\"\/pages\/why-x-is-the-best#heading_10\">10. GROWTH OF NEW NEURONS<\/a><\/p>","text":"<p>Click on any item in the list for more details, including links to clinical studies.<\/p>"}}},"block_order":["1ec092de-eda8-49a7-86f1-25d6888fa9ec","6d92b3fb-766a-4ee0-b4d7-f70827a15c44"],"custom_css":[".grid {--grid-mobile-vertical-spacing: 2rem;}"],"settings":{"title":"","heading_size":"h1","image_width":"full","image_ratio":"adapt","columns_desktop":2,"column_alignment":"left","background_style":"none","button_label":"","button_link":"","color_scheme":"background-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"540e4dde-6157-488d-8772-66af48c5c15d":{"type":"rich-text","blocks":{"template--18160491004217__540e4dde-6157-488d-8772-66af48c5c15d-1677658514b3d61bca-0":{"type":"heading","settings":{"heading":"<p>No other supplement contains this UNIQUE combination of ingredients<\/p>","heading_size":"h1"}}},"block_order":["template--18160491004217__540e4dde-6157-488d-8772-66af48c5c15d-1677658514b3d61bca-0"],"custom_css":[".rich-text__heading {text-transform: uppercase;}"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"inverse","full_width":true,"padding_top":20,"padding_bottom":20}},"98019fc1-ae69-4d52-9813-b41976fe37c8":{"type":"rich-text","blocks":{"template--18160491004217__98019fc1-ae69-4d52-9813-b41976fe37c8-1677658514b3d61bca-1":{"type":"text","settings":{"text":"<p><a href=\"\/pages\/what-s-in-x\" title=\"WHAT’S IN X\">See the ingredients and their benefits<\/a><\/p>"}}},"block_order":["template--18160491004217__98019fc1-ae69-4d52-9813-b41976fe37c8-1677658514b3d61bca-1"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"background-1","full_width":true,"padding_top":20,"padding_bottom":20}},"1839bf8e-0069-4d62-bfca-c88e8f4d29c0":{"type":"custom-liquid","custom_css":[".Sirv {max-width: 55rem; margin: 0 auto;}"],"settings":{"custom_liquid":"<script src=\"https:\/\/scripts.sirv.com\/sirv.js\"><\/script>\n<div class=\"page-width\">\n\n<div class=\"Sirv\" data-src=\"https:\/\/ineouden.sirv.com\/Spins\/NEW-X-BOTTLE-SPIN\/X.spin\"> <\/div>\n  \n<\/div>\n<\/div>","color_scheme":"background-1","padding_top":20,"padding_bottom":36}},"b6620f47-7a5c-43bc-8798-f3d7c1fd852f":{"type":"rich-text","blocks":{"template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-0":{"type":"heading","settings":{"heading":"<p>LOWER COST PER SERVING<\/p>","heading_size":"h1"}},"template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-1":{"type":"text","settings":{"text":"<p><strong>THAN THE LEADING PREMIUM BRAIN SUPPLEMENT<\/strong><br\/>+ A MORE POWERFUL COMBINATION OF INGREDIENTS<\/p><p><a href=\"\/pages\/why-x-is-the-best#comparisonChart\" title=\"\/pages\/why-x-is-the-best#comparisonChart\">See COST  per serving of top  brain supplements<\/a><\/p>"}},"template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-2":{"type":"button","settings":{"product_block_anchor":false,"button_label":"BUY <span class=\"brand\">X<\/span> NOW","button_link":"shopify:\/\/products\/x-brain-performance-enhancer","button_new_tab":false,"button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-0","template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-1","template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-2"],"custom_css":[".rich-text {background-color: #d2efbf;}",".rich-text__text {font-family: \"neue-haas-unica\"; font-size: 20px; line-height: 1.4; margin-top: 0;}",".rich-text__text a {font-family: \"neue-haas-grotesk-text\"; font-size: 16px; text-transform: uppercase;}",".button {gap: 5px; align-items: baseline; font-family: \"Open Sans\"; font-weight: 600; font-size: 22px; min-height: 35px; min-width: auto; padding: 5px 15px;}"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"background-1","full_width":true,"padding_top":20,"padding_bottom":20}},"c5a83c7b-6046-4b6f-962a-24f55ef81a44":{"type":"multicolumn","blocks":{"template--18160491004217__c5a83c7b-6046-4b6f-962a-24f55ef81a44-1677661350dbe8fa57-0":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/competitors.jpg","title":"","text":"<p><a href=\"\/pages\/why-x-is-the-best#comparisonChart\" title=\"\/pages\/why-x-is-the-best#comparisonChart\">View in-depth product comparison CHART<\/a><\/p>","link_label":"","link":"\/pages\/why-x-is-the-best#comparisonChart"}}},"block_order":["template--18160491004217__c5a83c7b-6046-4b6f-962a-24f55ef81a44-1677661350dbe8fa57-0"],"custom_css":[".title-wrapper-with-link {justify-content: center; border: 2px solid #0033a1; border-bottom: none; margin: 0; padding: 2rem 0;}",".title {color: #0033a1; text-transform: uppercase; font-size: 3rem;}","slider-component {border: 2px solid #0033a1; border-top: none;}",".multicolumn-card__info {text-transform: uppercase;}"],"settings":{"title":"See how <span class=\"brand\">x<\/span> compares to each of these products","heading_size":"h2","image_width":"full","image_ratio":"adapt","columns_desktop":1,"column_alignment":"center","background_style":"none","button_label":"","button_link":"","color_scheme":"background-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":28}},"9fd85050-fe8d-454c-8882-64efe57b37cb":{"type":"rich-text","blocks":{"template--18160491004217__9fd85050-fe8d-454c-8882-64efe57b37cb-1677658514b3d61bca-2":{"type":"button","settings":{"product_block_anchor":false,"button_label":"<span class=\"h1\">SUBSCRIBE<\/span> <b>MONTHLY DELIVERY • 15% OFF<\/b> <span>PAUSE OR CANCEL ANYTIME<\/span>","button_link":"shopify:\/\/products\/x-brain-performance-enhancer","button_new_tab":false,"button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["template--18160491004217__9fd85050-fe8d-454c-8882-64efe57b37cb-1677658514b3d61bca-2"],"custom_css":[".button {flex-direction: column; gap: 5px; font-family: \"neue-haas-unica\"; font-size: 2rem; padding-bottom: 1.6rem;}",".h1 {color: inherit; margin-top: 2rem; line-height: 1;}"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"background-1","full_width":true,"padding_top":24,"padding_bottom":24}},"e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84":{"type":"rich-text","blocks":{"template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-0":{"type":"heading","settings":{"heading":"<p>FULL 90-DAY MONEY-BACK GUARANTEE<\/p>","heading_size":"h1"}},"template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-1":{"type":"text","settings":{"text":"<p><a href=\"\/pages\/how-it-works\" title=\"How It Works\">SEE DETAILS<\/a><\/p>"}}},"block_order":["template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-0","template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-1"],"custom_css":[".rich-text__blocks {max-width: none;}",".rich-text__heading {background-color: #6f6e6e; color: #fff; padding: 10px 0 7px;}"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"background-1","full_width":true,"padding_top":28,"padding_bottom":28}},"9ed2c9b7-03e4-411e-927f-b157a4fc836f":{"type":"multicolumn","blocks":{"template--18160491004217__9ed2c9b7-03e4-411e-927f-b157a4fc836f-1677661350dbe8fa57-0":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Image_13.png","title":"","text":"","link_label":"","link":""}}},"block_order":["template--18160491004217__9ed2c9b7-03e4-411e-927f-b157a4fc836f-1677661350dbe8fa57-0"],"custom_css":[".multicolumn-card__image-wrapper {margin: 0 !important;}",".multicolumn-list__item {max-width: none;}"],"settings":{"title":"","heading_size":"h1","image_width":"full","image_ratio":"adapt","columns_desktop":1,"column_alignment":"center","background_style":"none","button_label":"","button_link":"","color_scheme":"background-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}}},"order":["6e3b22bd-93f1-4639-a04b-06058fae52a0","50283304-6690-458e-9a03-67d508cbda23","391fd68f-cb44-42d8-96ae-836e70f22e66","4df674c3-46e3-4265-8405-495f284d2344","540e4dde-6157-488d-8772-66af48c5c15d","98019fc1-ae69-4d52-9813-b41976fe37c8","1839bf8e-0069-4d62-bfca-c88e8f4d29c0","b6620f47-7a5c-43bc-8798-f3d7c1fd852f","c5a83c7b-6046-4b6f-962a-24f55ef81a44","9fd85050-fe8d-454c-8882-64efe57b37cb","e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84","9ed2c9b7-03e4-411e-927f-b157a4fc836f"]}
+{
+  "sections": {
+    "6e3b22bd-93f1-4639-a04b-06058fae52a0": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>THE WORLD’S MOST POWERFUL BRAIN SUPPLEMENT<\/p>",
+            "heading_size": "h2"
+          }
+        },
+        "template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We guarantee that <a href=\"#brand\" title=\"#brand\">X<\/a> will deliver a greater increase in brain performance* than any other supplement you’ve tried, or we’ll buy you that supplement.  <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-0",
+        "template--18160491004217__6e3b22bd-93f1-4639-a04b-06058fae52a0-16775692587c6a3d22-1"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: none;}",
+        ".rich-text__text {margin-top: 1.3rem; font-size: 2.8rem; line-height: 1.3;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "accent-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "50283304-6690-458e-9a03-67d508cbda23": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18160491004217__50283304-6690-458e-9a03-67d508cbda23-16775692587c6a3d22-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"\/pages\/x-guarantee\" title=\"X guarantee\">See details of this unprecedented guarantee<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__50283304-6690-458e-9a03-67d508cbda23-16775692587c6a3d22-1"
+      ],
+      "custom_css": [
+        ".rich-text__text {text-transform: uppercase; color: var(--gradient-base-accent-1);}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 52
+      }
+    },
+    "391fd68f-cb44-42d8-96ae-836e70f22e66": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-0": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>FOCUS<strong> *<\/strong><br\/>ENERGY<strong> *<\/strong><br\/>ATTENTION<strong> *<\/strong><br\/>COGNITION<strong> *<\/strong><br\/>MEMORY<strong> *<\/strong><\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/mri-neuroscience2_a5ff3aec-0c31-4301-a3e3-cab716b00ff3.jpg",
+            "title": "",
+            "text": "<p>100% SCIENCE-DRIVEN FORMULATION<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-0",
+        "template--18160491004217__391fd68f-cb44-42d8-96ae-836e70f22e66-16775689170025e7e1-1"
+      ],
+      "custom_css": [
+        ".multicolumn-list {gap: 0;}",
+        ".multicolumn-list__item {font-family: Roboto, sans-serif; font-size: 38px; font-weight: 900; line-height: 1.2;}",
+        ".multicolumn-list__item:first-child {--gradient-base-background-2: #e4eaff; font-size: 40px;}",
+        ".multicolumn-list__item:first-child strong {font-size: 14px; vertical-align: top;}",
+        ".multicolumn-list__item:first-child > div {display: flex; justify-content: center; padding-top: 1rem;}",
+        ".multicolumn-card-spacing {margin: 0; padding: 0;}",
+        ".multicolumn-card__info {padding: 1.5rem;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "4df674c3-46e3-4265-8405-495f284d2344": {
+      "type": "x-promotes",
+      "blocks": {
+        "1ec092de-eda8-49a7-86f1-25d6888fa9ec": {
+          "type": "column-image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Image_7_25a3c3ab-44ca-4525-8f8e-8b6419d9e5b0_1.png",
+            "title": "This serving of X delivers exactly what your brain needs.*",
+            "text": "<p>Powered by the latest research in neuroscience.<\/p>",
+            "link_label": "See why <span class=\"brand\">X<\/span> is the best",
+            "link": "shopify:\/\/pages\/why-x-is-the-best",
+            "text_footer": "<p>* — These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.<\/p>"
+          }
+        },
+        "6d92b3fb-766a-4ee0-b4d7-f70827a15c44": {
+          "type": "column-list",
+          "settings": {
+            "title": "X PROMOTES THE FOLLOWING:",
+            "list": "<p><a href=\"\/pages\/why-x-is-the-best#heading_1\" title=\"\/pages\/why-x-is-the-best#heading_1\">1. ELEVATED COGNITIVE FUNCTION*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_2\" title=\"\/pages\/why-x-is-the-best#heading_2\">2. IMPROVED FOCUS AND CONCENTRATION*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_3\" title=\"\/pages\/why-x-is-the-best#heading_3\">3. INCREASED NEUROPLASTICITY*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_4\" title=\"\/pages\/why-x-is-the-best#heading_4\">4. ENHANCED MOTIVATION AND DRIVE*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_5\" title=\"\/pages\/why-x-is-the-best#heading_5\">5. POSITIVE MOOD*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_6\" title=\"\/pages\/why-x-is-the-best#heading_6\">6. IMPROVED MEMORY*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_7\" title=\"\/pages\/why-x-is-the-best#heading_7\">7. ENERGY AND ALERTNESS*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_8\" title=\"\/pages\/why-x-is-the-best#heading_8\">8. REDUCED STRESS*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_9\" title=\"\/pages\/why-x-is-the-best#heading_9\">9. OVERALL BRAIN HEALTH*<\/a><br\/><a href=\"\/pages\/why-x-is-the-best#heading_10\" title=\"\/pages\/why-x-is-the-best#heading_10\">10. GROWTH OF NEW NEURONS<\/a><\/p>",
+            "text": "<p>Click on any item in the list for more details, including links to clinical studies.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1ec092de-eda8-49a7-86f1-25d6888fa9ec",
+        "6d92b3fb-766a-4ee0-b4d7-f70827a15c44"
+      ],
+      "custom_css": [
+        ".grid {--grid-mobile-vertical-spacing: 2rem;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "540e4dde-6157-488d-8772-66af48c5c15d": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18160491004217__540e4dde-6157-488d-8772-66af48c5c15d-1677658514b3d61bca-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>No other supplement contains this UNIQUE combination of ingredients<\/p>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__540e4dde-6157-488d-8772-66af48c5c15d-1677658514b3d61bca-0"
+      ],
+      "custom_css": [
+        ".rich-text__heading {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "inverse",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "98019fc1-ae69-4d52-9813-b41976fe37c8": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18160491004217__98019fc1-ae69-4d52-9813-b41976fe37c8-1677658514b3d61bca-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"\/pages\/what-s-in-x\" title=\"WHAT’S IN X\">See the ingredients and their benefits<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__98019fc1-ae69-4d52-9813-b41976fe37c8-1677658514b3d61bca-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "1839bf8e-0069-4d62-bfca-c88e8f4d29c0": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".Sirv {max-width: 55rem; margin: 0 auto;}"
+      ],
+      "settings": {
+        "custom_liquid": "<script src=\"https:\/\/scripts.sirv.com\/sirv.js\"><\/script>\n<div class=\"page-width\">\n\n<div class=\"Sirv\" data-src=\"https:\/\/ineouden.sirv.com\/Spins\/NEW-X-BOTTLE-SPIN\/X.spin\"> <\/div>\n  \n<\/div>\n<\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 20,
+        "padding_bottom": 36
+      }
+    },
+    "b6620f47-7a5c-43bc-8798-f3d7c1fd852f": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>LOWER COST PER SERVING<\/p>",
+            "heading_size": "h1"
+          }
+        },
+        "template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>THAN THE LEADING PREMIUM BRAIN SUPPLEMENT<\/strong><br\/>+ A MORE POWERFUL COMBINATION OF INGREDIENTS<\/p><p><a href=\"\/pages\/why-x-is-the-best#comparisonChart\" title=\"\/pages\/why-x-is-the-best#comparisonChart\">See COST  per serving of top  brain supplements<\/a><\/p>"
+          }
+        },
+        "template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-2": {
+          "type": "button",
+          "settings": {
+            "product_block_anchor": false,
+            "button_label": "BUY <span class=\"brand\">X<\/span> NOW",
+            "button_link": "shopify:\/\/products\/x-brain-performance-enhancer",
+            "button_new_tab": false,
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-0",
+        "template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-1",
+        "template--18160491004217__b6620f47-7a5c-43bc-8798-f3d7c1fd852f-1677658514b3d61bca-2"
+      ],
+      "custom_css": [
+        ".rich-text {background-color: #d2efbf;}",
+        ".rich-text__text {font-family: \"neue-haas-unica\"; font-size: 20px; line-height: 1.4; margin-top: 0;}",
+        ".rich-text__text a {font-family: \"neue-haas-grotesk-text\"; font-size: 16px; text-transform: uppercase;}",
+        ".button {gap: 5px; align-items: baseline; font-family: \"Open Sans\"; font-weight: 600; font-size: 22px; min-height: 35px; min-width: auto; padding: 5px 15px;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "c5a83c7b-6046-4b6f-962a-24f55ef81a44": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--18160491004217__c5a83c7b-6046-4b6f-962a-24f55ef81a44-1677661350dbe8fa57-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/competitors_1.jpg",
+            "title": "",
+            "text": "<p><a href=\"\/pages\/why-x-is-the-best#comparisonChart\" title=\"\/pages\/why-x-is-the-best#comparisonChart\">View in-depth product comparison CHART<\/a><\/p>",
+            "link_label": "",
+            "link": "\/pages\/why-x-is-the-best#comparisonChart"
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__c5a83c7b-6046-4b6f-962a-24f55ef81a44-1677661350dbe8fa57-0"
+      ],
+      "custom_css": [
+        ".title-wrapper-with-link {justify-content: center; border: 2px solid #0033a1; border-bottom: none; margin: 0; padding: 2rem 0;}",
+        ".title {color: #0033a1; text-transform: uppercase; font-size: 3rem;}",
+        "slider-component {border: 2px solid #0033a1; border-top: none;}",
+        ".multicolumn-card__info {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "title": "See how <span class=\"brand\">x<\/span> compares to each of these products",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 1,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "9fd85050-fe8d-454c-8882-64efe57b37cb": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18160491004217__9fd85050-fe8d-454c-8882-64efe57b37cb-1677658514b3d61bca-2": {
+          "type": "button",
+          "settings": {
+            "product_block_anchor": false,
+            "button_label": "<span class=\"h1\">SUBSCRIBE<\/span> <b>MONTHLY DELIVERY • 15% OFF<\/b> <span>PAUSE OR CANCEL ANYTIME<\/span>",
+            "button_link": "shopify:\/\/products\/x-brain-performance-enhancer",
+            "button_new_tab": false,
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__9fd85050-fe8d-454c-8882-64efe57b37cb-1677658514b3d61bca-2"
+      ],
+      "custom_css": [
+        ".button {flex-direction: column; gap: 5px; font-family: \"neue-haas-unica\"; font-size: 2rem; padding-bottom: 1.6rem;}",
+        ".h1 {color: inherit; margin-top: 2rem; line-height: 1;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>FULL 90-DAY MONEY-BACK GUARANTEE<\/p>",
+            "heading_size": "h1"
+          }
+        },
+        "template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"\/pages\/how-it-works\" title=\"How It Works\">SEE DETAILS<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-0",
+        "template--18160491004217__e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84-1677658514b3d61bca-1"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: none;}",
+        ".rich-text__heading {background-color: #6f6e6e; color: #fff; padding: 10px 0 7px;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "9ed2c9b7-03e4-411e-927f-b157a4fc836f": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--18160491004217__9ed2c9b7-03e4-411e-927f-b157a4fc836f-1677661350dbe8fa57-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Image_13_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18160491004217__9ed2c9b7-03e4-411e-927f-b157a4fc836f-1677661350dbe8fa57-0"
+      ],
+      "custom_css": [
+        ".multicolumn-card__image-wrapper {margin: 0 !important;}",
+        ".multicolumn-list__item {max-width: none;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 1,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "6e3b22bd-93f1-4639-a04b-06058fae52a0",
+    "50283304-6690-458e-9a03-67d508cbda23",
+    "391fd68f-cb44-42d8-96ae-836e70f22e66",
+    "4df674c3-46e3-4265-8405-495f284d2344",
+    "540e4dde-6157-488d-8772-66af48c5c15d",
+    "98019fc1-ae69-4d52-9813-b41976fe37c8",
+    "1839bf8e-0069-4d62-bfca-c88e8f4d29c0",
+    "b6620f47-7a5c-43bc-8798-f3d7c1fd852f",
+    "c5a83c7b-6046-4b6f-962a-24f55ef81a44",
+    "9fd85050-fe8d-454c-8882-64efe57b37cb",
+    "e3c8a6d4-b825-4beb-9f9d-ffb95d6f2a84",
+    "9ed2c9b7-03e4-411e-927f-b157a4fc836f"
+  ]
+}
